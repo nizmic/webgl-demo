@@ -1,6 +1,6 @@
 # webgl-demo
 
-A website written in noir. 
+Try to do something simple with WebGL
 
 ## Usage
 
@@ -13,7 +13,7 @@ lein run
 
 ## License
 
-Copyright (C) 2011 FIXME
+Copyright (C) 2011 Nathan Sullivan
 
 Distributed under the Eclipse Public License, the same as Clojure.
 
