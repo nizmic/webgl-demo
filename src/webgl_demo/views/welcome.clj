@@ -7,5 +7,5 @@
   (info "landed on /")
   (common/layout
    [:div {:style "text-align: center"}
-    [:p "FOO!"]
+    [:p "WebGL Demo"]
     [:canvas {:id "c" :style "width: 640px; height: 480px;"}]]))
