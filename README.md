@@ -13,7 +13,7 @@ lein run
 
 ## License
 
-Copyright (C) 2011 Nathan Sullivan
+Copyright (C) 2013 Nathan Sullivan
 
 Distributed under the Eclipse Public License, the same as Clojure.
 
