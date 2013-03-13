@@ -9,6 +9,8 @@
     (include-css "/css/reset.css")
     (include-js "/js/webgl-utils.js"
                 "/js/webgl-debug.js"
+                "/js/J3DI.js"
+                "/js/J3DIMath.js"
                 "/js/jquery-1.9.1.min.js"
                 "/js/log.js"
                 "/js/webgl-demo.js")]
