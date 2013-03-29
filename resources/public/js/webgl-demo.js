@@ -40,7 +40,7 @@ function init() {
     gl.clearColor(0., 0., 0., 1.);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    positionVector = new J3DIVector3(0.2, 0.0, 0.0);
+    positionVector = new J3DIVector3(0.0, 0.0, 0.0);
 
     render();
 }
