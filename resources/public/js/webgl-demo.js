@@ -6,6 +6,7 @@ var program;
 var mvMatrix;
 var mvpMatrix;
 var perspectiveMatrix;
+var positionVector;
 
 var vertexShaderSource = [
     "uniform mat4 mvpMatrix;",
@@ -39,6 +40,8 @@ function init() {
     gl.clearColor(0., 0., 0., 1.);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
+    positionVector = new J3DIVector3(0.2, 0.0, 0.0);
+
     render();
 }
 
@@ -66,6 +69,34 @@ function handleContextRestored() {
     init();
 }
 
+function handleKeyDown(event) {
+    log("handleKeyDown: " + event.keyIdentifier);
+    switch (event.keyIdentifier)
+    {
+    case "Up":
+	positionVector[1] += 0.05;
+	break;
+    case "Down":
+	positionVector[1] -= 0.05;
+	break;
+    case "Left":
+	positionVector[0] -= 0.05;
+	break;
+    case "Right":
+	positionVector[0] += 0.05;
+	break;
+    default:
+    }
+}
+
+//function handleKeyPress(event) {
+//    log("handleKeyPress: " + event);
+//}
+
+function handleKeyUp(event) {
+    log("handleKeyUp: " + event.keyIdentifier);
+}
+
 function main() {
     log("main: initializing webgl");
     canvas = document.getElementById("c");
@@ -74,6 +105,9 @@ function main() {
     canvas.onmousedown = handleMouseDown;
     document.onmouseup = handleMouseUp;
     document.onmousemove = handleMouseMove;
+    document.onkeydown = handleKeyDown;
+    //document.onkeypress = handleKeyPress;
+    document.onkeyup = handleKeyUp;
     ratio = window.devicePixelRatio ? window.devicePixelRatio : 1;
     canvas.width = 640 * ratio;
     canvas.height = 480 * ratio;
@@ -138,6 +172,10 @@ function render() {
     // Make a model/view matrix.
     mvMatrix.makeIdentity();
     //mvMatrix.rotate(20, 1, 0, 0);
+
+    // J3DIMath.js seems to indicate (in the header comments) that I could simply
+    // pass in the vector itself as a single arg, but that does not seem to work.
+    mvMatrix.translate(positionVector[0], positionVector[1], positionVector[2]);
  
     // Construct the model-view * projection matrix and pass it in
     mvpMatrix.load(perspectiveMatrix);
